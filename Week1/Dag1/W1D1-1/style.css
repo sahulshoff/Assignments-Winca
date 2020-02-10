@@ -1,0 +1,51 @@
+
+.container{
+    display: flex;
+    
+    
+}
+
+.card{
+   width: 280px;
+   border: 5px solid grey;
+   padding: 10px;
+   border-radius: 20px;
+   margin: 10px;
+  
+}
+
+.name{
+	margin-top: -20px;
+
+}
+
+hr{
+    margin: 10px -10px 10px;
+}
+.avatar{
+    float:right;
+    width: 50px;
+    height: 50px;
+}
+
+.status{
+    color: rgb(177, 175, 174);
+    margin-top: -20px;
+}
+
+.btn-app{
+     border-color: lawngreen;
+     background-color: white;
+     color:lawngreen;
+     margin-right: -8px;
+     width: 50%;
+     padding: 5px;
+}
+
+.btn-dec{
+     border-color: crimson;
+     background-color: white;
+     color: crimson;
+     width: 50%;
+     padding: 5px;
+}

@@ -147,16 +147,13 @@ const weightDc = superHeroesDc.map((array) => parseInt(array.weight)).reduce((cu
 console.log(weightDc)
 
 
-// const weightMarvel = marvelHeroes.map((array) => {
-//            x = array.weight
-//            if (x === "unknown"){
-//                return 
-//            } else{
-//                return parseInt(x)
-//            } 
-//         //    .reduce((currenTotal, number) => {
-//         //        return number + currenTotal},0);
+const checkWeightMarvel = marvelHeroes.filter((array) => array.weight !== "unknown"); 
+
+const totalWeightMarvel = checkWeightMarvel.map((array) => parseInt(array.weight)).reduce((currentTotal, number) => number + currentTotal);
+
+  
+console.log(totalWeightMarvel);
 
 
 
-// console.log(weightMarvel)
+

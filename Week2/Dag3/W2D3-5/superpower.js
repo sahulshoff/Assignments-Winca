@@ -107,27 +107,27 @@ const superHeroes = [
   ]
 
 
-// const superNames = superHeroes.map((array) =>  array.name)
+const superNames = superHeroes.map((array) =>  array.name)
 
-// console.log(superNames);
-
-
-
-// const lightHeroes = superHeroes.filter((array) => array.weight < 190)
-
-// console.log(lightHeroes);
+console.log(superNames);
 
 
 
-// const heavyHeroes = superHeroes.filter((array) => array.weight == 200)
+const lightHeroes = superHeroes.filter((array) => array.weight < 190)
 
-// console.log(heavyHeroes);
+console.log(lightHeroes);
 
 
 
-// const comicHeroes = superHeroes.map((array) => array.first_appearance);
+const heavyHeroes = superHeroes.filter((array) => array.weight == 200)
 
-// console.log(comicHeroes);
+console.log(heavyHeroes);
+
+
+
+const comicHeroes = superHeroes.map((array) => array.first_appearance);
+
+console.log(comicHeroes);
 
 
 const superHeroesDc = superHeroes.filter((name) => name.publisher === "DC Comics");
@@ -154,6 +154,15 @@ const totalWeightMarvel = checkWeightMarvel.map((array) => parseInt(array.weight
   
 console.log(totalWeightMarvel);
 
+const totalWeightHeroes = totalWeightMarvel + weightDc
+
+
+// const heaviestHero = totalWeightHeroes.reduce() => Math.max();
+
+// console.log(heaviestHero);
+
+const LargestNum = totalWeightHeroes.reduce((max, p) => p.y > max ? p.y : max, data[0].y);
 
 
 
+console.log(LargestNum);

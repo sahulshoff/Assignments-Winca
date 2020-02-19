@@ -1,16 +1,29 @@
 const getSucceedingPromise = (message, ms) => {
 	// Maak hier je functie die een succeeding Promise retourneert
+	const succes = new Promise((resolve,reject) {
+		setTimeout(() => {
+			resolve (message)
+		}, ms);
+	})
+	return succes;
 };
 
 const getFailingPromise = (errorMessage, ms) => {
 	// Maak hier je functie die een failing Promise retourneert
+	const fail = new Promise((resolve,reject) {
+		setTimeout(() => {
+			reject (errorMessage)
+		}, ms);
+	})
+	return fail;
 };
 
 const getRandomSucceedingOrFailingPromise = id => {
 	// This randomly resolves to true or false
-	let promiseShouldSucceed = schrijfhierjecode;
+	let promiseShouldSucceed = Math.random() >= 0.5;
+	};
 	// This gets some semi-random amound of seconds under the 5seconds:
-	let randomMillisecond = schrijfjecodehier;
+	let randomMillisecond = Math.round(Math.random() * 4000);
 
 	if (promiseShouldSucceed) {
 		return getSucceedingPromise(
@@ -23,7 +36,7 @@ const getRandomSucceedingOrFailingPromise = id => {
 			randomMillisecond
 		);
 	}
-};
+
 
 const createPromiseElement = promise => {
 	const div = document.createElement("div");
@@ -60,6 +73,11 @@ const add50Promises = () => {
 const consumePromise = function(allPromises, id) {
 	const promise = getRandomSucceedingOrFailingPromise(id);
 	//consumeer hier je Promise
+	.then(resolved => {
+		
+
+	}) 
+		
 };
 
 const registerEventHandlers = () => {

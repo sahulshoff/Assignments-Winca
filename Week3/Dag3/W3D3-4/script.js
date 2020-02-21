@@ -1,38 +1,100 @@
-const callData = async () => {
-	const waitForData = await getData();
-	console.log("Tadaaaa the data", waitForData);
+const setGenreData = async () => {
+	const genreList = document.getElementById("listGenre");
+	const data = await getGenreData();
+
+	data.genres.forEach(genre => {
+		const li = document.createElement("li");
+		const liGenre = `genre: ${genre.name}, id: ${genre.id}`;
+		const textnode = document.createTextNode(liGenre);
+
+		li.appendChild(textnode);
+		genreList.appendChild(li);
+	});
+};
+setGenreData();
+
+external_id = "tt0903624";
+
+const setSingleMovie = async () => {
+	const data = await getSingleMovie();
+	const movieData = data.movie_results[0];
+	const movieH1 = document.getElementById("singleMov");
+	const textnode = document.createTextNode(movieData.original_title);
+	movieH1.appendChild(textnode);
 };
 
-callData();
+setSingleMovie();
 
-// function addTitlesToDom(callData) {
-// 	callData.forEach(title => {
-// 		const li = document.createElement("li");
-// 		document.createTextNode(title);
-// 		li.appendChild(title);
-// 		document.getElementById("listGenre").appendChild(li);
-// 	});
-// }
+const setLatestMovies = async () => {
+	const movieLatest = document.getElementById("listLatest");
+	const latestMoviedata = await getLatestMovies();
+	//console.log(data);
+	const languageFilter = latestMoviedata.results.filter(
+		array => array.original_language === "en"
+	);
+	const movieDataEn = languageFilter.slice(0, 10);
+	//console.log(movieData);
 
-//
-// addTitlesToDom(callData);
+	movieDataEn.forEach(titel => {
+		const li = document.createElement("li");
+		const textnode = document.createTextNode(titel.original_title);
 
-// 1: {id: 12, name: "Adventure"}
-// {id: 28, name: "Action"}
-// 2: {id: 16, name: "Animation"}
-// 3: {id: 35, name: "Comedy"}
-// 4: {id: 80, name: "Crime"}
-// 5: {id: 99, name: "Documentary"}
-// 6: {id: 18, name: "Drama"}
-// 7: {id: 10751, name: "Family"}
-// 8: {id: 14, name: "Fantasy"}
-// 9: {id: 36, name: "History"}
-// 10: {id: 27, name: "Horror"}
-// 11: {id: 10402, name: "Music"}
-// 12: {id: 9648, name: "Mystery"}
-// 13: {id: 10749, name: "Romance"}
-// 14: {id: 878, name: "Science Fiction"}
-// 15: {id: 10770, name: "TV Movie"}
-// 16: {id: 53, name: "Thriller"}
-// 17: {id: 10752, name: "War"}
-// 18: {id: 37, name: "Western"}
+		li.appendChild(textnode);
+		movieLatest.appendChild(li);
+	});
+};
+
+setLatestMovies();
+
+const setActionMovies = async () => {
+	const movieAction = document.getElementById("actionList");
+	const actionMoviedata = await getActionMovies();
+	//console.log(data);
+	const languageFilter = actionMoviedata.results.filter(
+		array => array.original_language === "en"
+	);
+	const movieDataEn = languageFilter.slice(0, 10);
+	//console.log(movieData);
+
+	movieDataEn.forEach(titel => {
+		const li = document.createElement("li");
+		const textnode = document.createTextNode(titel.original_title);
+
+		li.appendChild(textnode);
+		movieAction.appendChild(li);
+	});
+};
+
+setActionMovies();
+
+const setMoviesSeventyFive = async () => {
+	const selectMovieList = document.getElementById("movieListSeventy");
+	const movieDataSeventyFive = await getMoviesSeventyFive();
+	//console.log(data);
+	const languageFilter = movieDataSeventyFive.results.filter(
+		array => array.original_language === "en"
+	);
+	const movieDataFilteredEn = languageFilter.slice(0, 10);
+	//console.log(movieData);
+
+	movieDataFilteredEn.forEach(title => {
+		const li = document.createElement("li");
+		//const liMovieData = ;
+		const textnode = document.createTextNode(
+			//title.original_title,
+			//title.release_date
+			` ${title.original_title}, Release Date: ${title.release_date}`
+		);
+
+		li.appendChild(textnode);
+		selectMovieList.appendChild(li);
+	});
+};
+
+setMoviesSeventyFive();
+
+const setPostRating = async () => {
+	const rating = await getPostrating();
+};
+
+setPostRating();
